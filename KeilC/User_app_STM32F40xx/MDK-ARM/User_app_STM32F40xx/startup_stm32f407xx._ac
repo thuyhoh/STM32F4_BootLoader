@@ -1,0 +1,6 @@
+--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c
+-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"
+-I./RTE/_User_app_STM32F40xx
+-IC:/Users/Admin/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+-Wa,armasm,--pd,"__UVISION_VERSION SETA 541" -Wa,armasm,--pd,"STM32F407xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"
+-o ./user_app_stm32f40xx/startup_stm32f407xx.o "startup_stm32f407xx.s"
