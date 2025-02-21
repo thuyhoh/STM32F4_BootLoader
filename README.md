@@ -34,6 +34,9 @@
 - Backup RAM
 - Option byte memory 
 \- vùng nhớ phụ thộc vào chế độ BOOT
+
+- little edian vs big edian
+
 ### 2. Boot Configuration 
 ![image](./img/BootConfig.png)
 - Mặc định thì BOOT0 sẽ đặt ở mức thấp Flash memory sẽ được ánh xạ vào khu vực Option byte memory  
@@ -65,13 +68,13 @@
 ![image](./img/CRC_flowchart.png)
 
 ### 3. Bootloader Command
-#### BL_GET_VER command
+#### BL_GET_VER
 ![image](./img/BL_GET_VER_cmd.png)
 - Giá trị các trường
   - Tổng Byte của gói tin: 6 
   - Command code : 0x51
   - Length to follow : 5 
-- Reply: 1 Byte: Version của bootloader
+- Reply: 1 Byte: Version của bootloader (1.0)
 #### BL_GET_HELP
 ![image](./img/BL_GET_HELP_cmd.png)
 - Giá trị các trường
@@ -85,7 +88,7 @@
   - Tổng Byte của gói tin: 6 
   - Command code : 0x53
   - Length to follow : 5 
-- Reply: 2 Byte chứa chip id của 
+- Reply: 2 Byte chứa chip id của (DBGMCU_IDCODE)
 #### BL_GET_RDP_STATUS
 ![image](./img/BL_GET_RDP_STATUS_cmd.png)
 - Giá trị các trường
@@ -114,6 +117,9 @@
   - Command code : 0x53
   - Length to follow : 5 
 - Reply:
+- ``note :`` tạo một file thực thi nhị phân trong keilc
+  - fromelf.exe --bin \<file_name>.axf --output <dict_file_name>.bin 
+  - vd: fromelf.exe --bin User_app_STM32F40xx\User_app_STM32F40xx.axf --output User_app_STM32F40xx.bin 
 #### BL_READ_SECTOR_P_STATUS
 
 
